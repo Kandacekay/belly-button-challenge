@@ -1,0 +1,42 @@
+.container .col-md-12.jumbotron.text-center {
+    border: 5px solid rgb(157, 255, 97);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    padding: 45px;
+    background: url('https://www.gutmicrobiotaforhealth.com/wp-content/uploads/2020/12/microbes_gut-microbiota.jpg') center/cover;
+  }
+  
+ /* Styles for .well */
+.well {
+    background-color: white;
+    border: 5px solid rgb(134, 243, 138);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Styles for h5 within .well */
+  .well h5 {
+    margin-bottom: 10px;
+  }
+  
+  /* Styles for select within .well */
+  .well select {
+    border: 3px solid rgb(134, 243, 138);
+    background-color: rgba(255, 255, 255, 0.493);
+    color: rgb(254, 0, 0);
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .panel-primary > .panel-heading {
+    color: rgb(255, 255, 255); /* Change text color to black */
+    background-color: rgb(134, 243, 138); /* Change background color to a shade of yellow */
+    border: 3px solid rgb(134, 243, 138); /* Change border color to the same shade of yellow */
+    text-align: center;
+    margin: 0 auto;
+}
+
+.panel-primary {
+    border-color: rgb(134, 243, 138);
+}
