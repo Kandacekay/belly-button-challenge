@@ -136,7 +136,7 @@ function getPlots(id) {
         var traceGauge = {
             domain: { x: [0, 1], y: [0, 1] },
             value: freq,
-            title: { text: "Speed" },
+            title: { text: "<b>Belly Button Washing Frequency</b><br>Scrubs per-Week</br>" },
             type: "indicator",
             mode: "gauge+number",
             delta: {reference: 400},
