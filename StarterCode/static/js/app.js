@@ -1,85 +1,74 @@
 function getPlots(id) {
-    //Read samples.json
-        d3.json("samples.json").then (sampledata =>{
-            console.log(sampledata)
-            var ids = sampledata.samples[0].otu_ids;
-            console.log(ids)
-            var sampleValues =  sampledata.samples[0].sample_values.slice(0,10).reverse();
-            console.log(sampleValues)
-            var labels =  sampledata.samples[0].otu_labels.slice(0,10);
-            console.log (labels)
-        // get only top 10 otu ids for the plot OTU and reversing it. 
-            var OTU_top = ( sampledata.samples[0].otu_ids.slice(0, 10)).reverse();
-        // get the otu id's to the desired form for the plot
-            var OTU_id = OTU_top.map(d => "OTU " + d)
-            console.log(`OTU IDS: ${OTU_id}`)
-         // get the top 10 labels for the plot
-            var labels =  sampledata.samples[0].otu_labels.slice(0,10);
-            console.log(`OTU_labels: ${labels}`)
-            var trace = {
-                x: sampleValues,
-                y: OTU_id,
-                text:labels,
-                type: 'bar',
-                orientation: 'h',
-                marker: {
-                  color: sampleValues,
-                  colorscale: 'Rainbow',
-                  opacity: 0.6
-                }
-              };
-            // create data variable
-            var data = [trace];
-    
-            // create layout variable to set plots layout
-            var layout = {
-                title: "<b>Top 10 OTU</b>",
-                yaxis:{
-                    tickmode:"linear",
-                },
-                margin: {
-                    l: 100,
-                    r: 100,
-                    t: 100,
-                    b: 30
-                }
-            };
-    
-            // create the bar plot
+    // Read samples.json
+    d3.json("samples.json").then(sampledata => {
+        // Find the selected sample data based on the ID
+        var selectedSample = sampledata.samples.find(sample => sample.id === id);
+        var sampleValues = selectedSample.sample_values.slice(0, 10).reverse();
+        var OTU_top = selectedSample.otu_ids.slice(0, 10).reverse().map(d => "OTU " + d);
+        var labels = selectedSample.otu_labels.slice(0, 10);
+
+        // Create a color scale based on OTU IDs
+        var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+        var trace = {
+            x: sampleValues,
+            y: OTU_top,
+            text: labels,
+            type: 'bar',
+            orientation: 'h',
+            marker: {
+                color: OTU_top.map(d => colorScale(d.replace("OTU ", ""))),
+                opacity: 0.6
+            }
+        };
+
+        // Create data variable for the bar chart
+        var data = [trace];
+
+        // Create layout variable to set plots layout
+        var layout = {
+            title: "<b>Top 10 OTU</b>",
+            yaxis: {
+                tickmode: "linear",
+            },
+            margin: {
+                l: 100,
+                r: 100,
+                t: 100,
+                b: 30
+            }
+        };
+
+        // Create the bar plot
         Plotly.newPlot("bar", data, layout);
 
+        var trace1 = {
+            x: selectedSample.otu_ids,
+            y: selectedSample.sample_values,
+            mode: "markers",
+            marker: {
+                size: selectedSample.sample_values,
+                color: selectedSample.otu_ids.map(d => colorScale(d)),
+                opacity: 0.7
+            },
+            text: selectedSample.otu_labels
+        };
 
-            // The bubble chart
-            var trace1 = {
-                x: sampledata.samples[0].otu_ids,
-                y: sampledata.samples[0].sample_values,
-                mode: "markers",
-                marker: {
-                    size: sampledata.samples[0].sample_values,
-                    color: sampledata.samples[0].otu_ids,
-                    colorscale: 'Rainbow',
-                    opacity: 0.7
-                },
-                text:  sampledata.samples[0].otu_labels
-    
-            };
-    
-            // set the layout for the bubble plot
-            var layout_2 = {
-                xaxis:{title: "OTU ID"},
-                yaxis: {title: "Sample Values"},
-                height: 600,
-                width: 1000
-            };
-    
-            // creating data variable 
-            var data1 = [trace1];
-    
-        // create the bubble plot
-        Plotly.newPlot("bubble", data1, layout_2); 
-        
-        });
-    }  
+        // Set the layout for the bubble plot
+        var layout_2 = {
+            xaxis: { title: "OTU ID" },
+            yaxis: { title: "Sample Values" },
+            height: 600,
+            width: 1000
+        };
+
+        // Create data variable for the bubble plot
+        var data1 = [trace1];
+
+        // Create the bubble plot
+        Plotly.newPlot("bubble", data1, layout_2);
+    });
+}
     // create the function to get the necessary data
     function getDemoInfo(id) {
     // read the json file to get data
