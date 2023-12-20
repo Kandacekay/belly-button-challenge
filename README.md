@@ -1,120 +1,63 @@
-# belly-button-challenge
+# Belly Button Biodiversity Dashboard
 
-# Visit Dashboard @: 
-https://kandacekay.github.io/belly-button-challenge/StarterCode
+## Project Overview
+This repository serves as the foundation for an interactive dashboard designed to explore the intriguing world of the Belly Button Biodiversity dataset. The dataset meticulously catalogs microbial species inhabiting human navels, providing a comprehensive glimpse into the diversity of these microscopic inhabitants.
+
+## Project Structure
+### Repository Creation
+
+1. Repository Establishment:
+   - A new repository, named belly-button-challenge, was created to encapsulate this project. This repository is dedicated solely to the Belly Button Biodiversity Dashboard.
+
+2. Local Environment Setup:
+   - The repository was cloned to the local machine, allowing for seamless collaboration and development.
+  
+### File Configuration
+1. File Transfer:
+   - Essential project files, including index.html, samples.json, and the static folder, were copied from the StarterCode folder provided in the Module 14 Challenge zip file. These files lay the groundwork for the dashboard's functionality and aesthetics.
+
+### GitHub Management
+1. GitHub Interaction:
+   - Changes made to the local repository were pushed to the GitHub repository, facilitating version control and collaborative development.
+2. Deployment to GitHub Pages:
+   - The repository was successfully deployed to GitHub Pages, providing a publicly accessible platform for users to interact with the Belly Button Biodiversity Dashboard.
+
+## Dashboard Features and Functionality
+### Bar Chart Implementation
+1. Bar Chart Initialization:
+   - The dashboard features a visually appealing bar chart that initializes without errors.
+2. Dynamic Chart Update:
+   - A dynamic chart update mechanism was implemented, ensuring that the displayed information adapts seamlessly to user interactions and the selection of new samples.
+3. Top 10 Sample Values:
+   - The bar chart is configured to display the top 10 Operational Taxonomic Units (OTUs) as sample values, shedding light on the prevalence of specific microbial species.
+4. Labeling and Tooltip Integration:
+   - Utilizing otu_ids as labels and incorporating otu_labels for tooltip information enhances the interpretability of the chart, providing users with detailed insights into the microbial composition.
+
+## Bubble Chart Integration
+1. Bubble Chart Initialization:
+   -An engaging bubble chart, serving as an additional visualization tool, was seamlessly integrated into the dashboard.
+2. Dynamic Bubble Chart Update:
+   - The bubble chart dynamically updates in response to user interactions and the selection of new samples, maintaining an interactive and informative user experience.
+3. Comprehensive Marker Settings:
+   - Leveraging otu_ids for marker colors, sample_values for marker size, and incorporating otu_labels as text values, the bubble chart offers a comprehensive representation of microbial characteristics.
+
+## Metadata Display
+1. Metadata Initialization:
+   -Essential metadata, encompassing demographic information about individuals, is flawlessly initialized on the dashboard.
+2. Dynamic Metadata Update:
+   - Metadata updates dynamically as users explore different samples, ensuring that relevant demographic details accompany each dataset.
+
+## Gauge Chart Enhancement:
+1. An optional and advanced feature was incorporated to adapt the Gauge Chart, effectively plotting the weekly washing frequency of individuals.
+   - This enhancement adds an extra layer of insight into hygiene practices.
+2. Dynamic Gauge Update:
+   - The Gauge Chart dynamically updates with each new sample selection, providing users with real-time information on washing frequency.
+
+## Conclusion
+This project successfully combines technical proficiency in data visualization with user-friendly design, offering an immersive exploration of the Belly Button Biodiversity dataset. The thoughtful integration of diverse charts and the seamless dynamic updates enhance the overall user experience, making scientific exploration both accessible and engaging. The deployment to GitHub Pages ensures widespread accessibility, allowing users to delve into the microbial mysteries residing in our navels.
 
 
-## Background
-In this assignment, you will build an interactive dashboard to explore the Belly Button Biodiversity datasetLinks to an external site., which catalogs the microbes that colonize human navels.
 
-The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
 
-## Before You Begin
-1. Create a new repository for this project called belly-button-challenge. Do not add this Challenge to an existing repository.
 
-2. Clone the new repository to your computer.
 
-3. Inside your local git repository, copy the files from in the StarterCode folder contained within the Module 14 Challenge zip file. i.e. index.html, samples.json, and the static folder.
-
-### NOTE
-You will not be required to access the samples.json file locally, but it is provided for reference.
-
-4. Push the above changes to GitHub.
-
-5. Deploy the new repository to GitHub Pages.
-
-## Files
-Download the following files to help you get started:
-
-Module 14 Challenge filesLinks to an external site.
-
-## Instructions
-Complete the following steps:
-
-1. Use the D3 library to read in samples.json from the URL https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json.
-
-2. Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
-
-- Use sample_values as the values for the bar chart.
-
-- Use otu_ids as the labels for the bar chart.
-
-- Use otu_labels as the hovertext for the chart.
-
-![Alt text](image.png)
-
-3. Create a bubble chart that displays each sample.
-
-- Use otu_ids for the x values.
-
-- Use sample_values for the y values.
-
-- Use sample_values for the marker size.
-
-- Use otu_ids for the marker colors.
-
-- Use otu_labels for the text values.
-
-![Alt text](image-1.png)
-
-4. Display the sample metadata, i.e., an individual's demographic information.
-
-5. Display each key-value pair from the metadata JSON object somewhere on the page.
-
-![Alt text](image-2.png)
-
-6. Update all the plots when a new sample is selected. Additionally, you are welcome to create any layout that you would like for your dashboard. An example dashboard is shown as follows:
-
-![Alt text](image-3.png)
-
-7. Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo. Ensure that your repository has regular commits and a thorough README.md file
-
-## Advanced Challenge Assignment (Optional with no extra points earning)
-The following task is advanced and therefore optional.
-
-- Adapt the Gauge Chart from https://plot.ly/javascript/gauge-charts/Links to an external site. to plot the weekly washing frequency of the individual.
-
-- You will need to modify the example gauge code to account for values ranging from 0 through 9.
-
-- Update the chart whenever a new sample is selected.
-
-![Alt text](image-4.png)
-
-## Hints
-- Use console.log inside of your JavaScript code to see what your data looks like at each step.
-
-- Refer to the Plotly.js documentationLinks to an external site. when building the plots.
-
-## Requirements
-### Bar Chart (30 points)
-- Chart initializes without error (10 points)
-
-- Chart updates when a new sample is selected (5 points)
-
-- Chart uses Top 10 sample values as values (5 points)
-
-- Chart uses otu_ids as the labels (5 points)
-
-- Chart uses otu_labels as the tooltip (5 points)
-
-### Bubble Charts (40 points)
-- Chart initializes without error (10 points)
-
-- Chart updates when a new sample is selected (5 points)
-
-- Chart uses otu_ids for the x values (5 points)
-
-- Chart uses otu_ids for marker colors (5 points)
-
-- Chart uses sample_values for the y values (5 points)
-
-- Chart uses sample_values for the marker size (5 points)
-
-- Chart uses `otu_labels for text values (5 points)
-
-### Metadata and Deployment (30 points)
-- Metadata initializes without error (10 points)
-
-- Metadata updates when a new sample is selected (10 points)
-
-- App Successfully Deployed to Github Pages (10 points)
